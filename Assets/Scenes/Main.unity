@@ -178,8 +178,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wave
   enemySpawner: {fileID: 606501272}
-  enemiesPerWave: 5
   spawnRadius: 10
+  waveDuration: 3
+  difficulty: {fileID: 0}
+  difficulties:
+  - {fileID: 11400000, guid: 8258052cfa4cb954ba0de8c3b484c6b3, type: 2}
+  - {fileID: 11400000, guid: b15c2f10398cf964f842b93f1d9bc3d2, type: 2}
+  - {fileID: 11400000, guid: bd7a7d4e06dce1048a363165070c6563, type: 2}
+  - {fileID: 11400000, guid: 8cd197bfa8329e54b8b708e890265b3b, type: 2}
+  - {fileID: 11400000, guid: 38098805138cdba469e172fb4b032372, type: 2}
 --- !u!1 &669636683
 GameObject:
   m_ObjectHideFlags: 0
