@@ -33,4 +33,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         isDead = true;
         Destroy(gameObject);
     }
+
+    public void SetHealthMultiplier(float multiplier)
+    {
+        maxHealth = maxHealth * multiplier;
+        currentHealth = maxHealth;
+    }
 }

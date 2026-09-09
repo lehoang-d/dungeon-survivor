@@ -22,5 +22,10 @@ public class EnemyContactDamage : MonoBehaviour
         lastDamageTime = Time.time;
     }
 
+    public void SetDamageMultiplier(float multiplier)
+    {
+        damage *= multiplier;
+    }
+
 
 }
