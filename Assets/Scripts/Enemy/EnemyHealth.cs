@@ -31,6 +31,13 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         
         isDead = true;
+
+        EnemyDrop enemyDrop = GetComponent<EnemyDrop>();
+
+        if(enemyDrop != null)
+        {
+            enemyDrop.DropExperience();
+        }
         Destroy(gameObject);
     }
 
@@ -38,5 +45,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         maxHealth = maxHealth * multiplier;
         currentHealth = maxHealth;
+    }
+
+    public void DebugKill()
+    {
+        Die();
     }
 }
