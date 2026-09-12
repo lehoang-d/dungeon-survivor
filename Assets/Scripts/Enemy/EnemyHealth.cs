@@ -4,7 +4,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth = 20f;
 
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
+
 
     private bool isDead;
 

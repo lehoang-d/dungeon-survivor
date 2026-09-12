@@ -4,6 +4,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
 
+    private PlayerStats playerStats;
+
     private Rigidbody2D rb;
     private PlayerInputActions inputActions;
 
@@ -13,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         inputActions = new PlayerInputActions();
-
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void Update()
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 movement = moveInput * moveSpeed;
+        Vector2 movement = moveInput * playerStats.MoveSpeed;
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
