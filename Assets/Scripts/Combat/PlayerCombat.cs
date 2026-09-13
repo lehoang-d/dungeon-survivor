@@ -54,8 +54,16 @@ public class PlayerCombat : MonoBehaviour
             if (!hit.TryGetComponent<IDamageable>(out var damageable))
                 continue;
             
-            damageable.TakeDamage(playerStats.AttackDamage);
+            ApplyDamage(hit);
         }
+    }
+
+    private void ApplyDamage(Collider2D target)
+    {
+        if(!target.TryGetComponent<IDamageable>(out var damageable))
+            return;
+
+        damageable.TakeDamage(playerStats.AttackDamage);
     }
 
     
