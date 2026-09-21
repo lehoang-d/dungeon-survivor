@@ -18,7 +18,8 @@ public class EnemyContactDamage : MonoBehaviour
         if(!collision.gameObject.TryGetComponent<IDamageable>(out var damageable))
             return;
 
-        damageable.TakeDamage(damage);
+        DamageData damageData = new DamageData(damage,gameObject);
+        damageable.TakeDamage(damageData);
         lastDamageTime = Time.time;
     }
 

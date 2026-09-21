@@ -14,12 +14,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageData damageData)
     {
         if (isDead)
             return;
 
-        currentHealth -= damage;
+        currentHealth -= damageData.amount;
         currentHealth = Mathf.Max(currentHealth,0f);
 
         if (currentHealth <= 0f)
