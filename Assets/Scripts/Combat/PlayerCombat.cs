@@ -62,8 +62,9 @@ public class PlayerCombat : MonoBehaviour
     {
         if(!target.TryGetComponent<IDamageable>(out var damageable))
             return;
+        DamageData damageData = new DamageData(playerStats.AttackDamage,gameObject);
 
-        damageable.TakeDamage(playerStats.AttackDamage);
+        damageable.TakeDamage(damageData);
     }
 
     
