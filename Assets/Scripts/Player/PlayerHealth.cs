@@ -43,7 +43,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             return;
 
         isDead = true;
-        gameManager.GameOver();
+
+        GameManager gameManager = FindFirstObjectByType<GameManager>();
+
+        if (gameManager != null)
+        {
+            gameManager.GameOver();
+        }
 
         Debug.Log("Player died!");
     }
