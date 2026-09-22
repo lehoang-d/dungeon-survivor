@@ -1,42 +1,50 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
-    public GameState CurrentState {get; private set;}
+    [SerializeField] private GameState currentState;
+    public GameState CurrentState => currentState;
+
+    public event Action<GameState> GameStateChanged;
 
     private void Awake()
     {
         Initialize();
+        GameStateChanged?.Invoke(currentState);
     }
 
     private void Initialize()
     {
-        CurrentState = GameState.Playing;
+        currentState = GameState.Playing;
     }
 
     public void Pause()
     {
-        if (CurrentState != GameState.Playing)
+        if (currentState != GameState.Playing)
             return;
         
-        CurrentState = GameState.Paused;
+        currentState = GameState.Paused;
+        GameStateChanged?.Invoke(currentState);
     }
 
     public void Resume()
     {
-        if (CurrentState != GameState.Paused)
+        if (currentState != GameState.Paused)
             return;
 
-        CurrentState = GameState.Playing;
+        currentState = GameState.Playing;
+        GameStateChanged?.Invoke(currentState);
     }
 
     public void GameOver()
     {
-        if (CurrentState == GameState.GameOver)
+        if (currentState == GameState.GameOver)
             return;
 
-        CurrentState = GameState.GameOver;
+        currentState = GameState.GameOver;
+        GameStateChanged?.Invoke(currentState);
     }
 
     public void Restart()

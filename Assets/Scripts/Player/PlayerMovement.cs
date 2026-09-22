@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    //[SerializeField] private float moveSpeed = 5f;
 
     private PlayerStats playerStats;
 
